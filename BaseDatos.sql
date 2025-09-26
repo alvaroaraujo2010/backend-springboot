@@ -1,0 +1,32 @@
+-- BaseDatos.sql
+CREATE DATABASE IF NOT EXISTS proyecto_db;
+USE proyecto_db;
+
+CREATE TABLE IF NOT EXISTS cliente (
+  id BIGINT AUTO_INCREMENT PRIMARY KEY,
+  nombre VARCHAR(100) NOT NULL,
+  email VARCHAR(100),
+  telefono VARCHAR(20) NOT NULL,
+  identificacion VARCHAR(50) UNIQUE
+);
+
+CREATE TABLE IF NOT EXISTS cuenta (
+  id BIGINT AUTO_INCREMENT PRIMARY KEY,
+  numero VARCHAR(50) NOT NULL UNIQUE,
+  tipo VARCHAR(50),
+  saldo_inicial DECIMAL(15,2) DEFAULT 0,
+  estado BOOLEAN DEFAULT TRUE,
+  cliente_id BIGINT,
+  FOREIGN KEY (cliente_id) REFERENCES cliente(id)
+);
+
+CREATE TABLE IF NOT EXISTS movimiento (
+  id BIGINT AUTO_INCREMENT PRIMARY KEY,
+  tipo VARCHAR(20) NOT NULL,
+  valor DECIMAL(15,2) NOT NULL,
+  saldo DECIMAL(15,2),
+  fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  referencia VARCHAR(100) UNIQUE,
+  cuenta_id BIGINT,
+  FOREIGN KEY (cuenta_id) REFERENCES cuenta(id)
+);
