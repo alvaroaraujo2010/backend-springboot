@@ -20,6 +20,8 @@ public class Movimiento {
 
     private String tipo;
 
+    private String tipoMovimiento;
+
     private BigDecimal valor;
 
     private BigDecimal saldo;

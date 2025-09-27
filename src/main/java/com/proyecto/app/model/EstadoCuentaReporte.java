@@ -14,8 +14,8 @@ public class EstadoCuentaReporte {
     private String numeroCuenta;
     private String tipoCuenta;
     private String cliente;
-    private LocalDateTime fechaInicio;
-    private LocalDateTime fechaFin;
+    private LocalDateTime FechaDesde;
+    private LocalDateTime FechaHasta;
     private List<Movimiento> movimientos;
     private BigDecimal totalCreditos;
     private BigDecimal totalDebitos;

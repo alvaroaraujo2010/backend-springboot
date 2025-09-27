@@ -38,11 +38,10 @@ public class MovimientoController {
     }
 
     @GetMapping("/all")
-    public ResponseEntity<List<MovimientoDTO>> listAllWithSaldo() {
+    public ResponseEntity<List<Movimiento>> listAllWithSaldo() {
         return ResponseEntity.ok(
                 movimientoService.listAllWithSaldo()
                         .stream()
-                        .map(MovimientoDTO::new)
                         .toList()
         );
     }
